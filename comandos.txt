@@ -13,4 +13,9 @@
 ### configurar repositorio git del proyecto ###
 
 www.github.com
-8. crear repositorio 'robersonwm/carzone-gitproject'
+8. crear repositorio 'robersonwm/carzone-gitproject' y ejecutar el primer respaldo del proyecto
+    $ git init
+    $ git commit -m "first commit"
+    $ git branch -M main
+    $ git remote add origin https://github.com/robersonwm/carzone-gitproject.git
+    $ git push -u origin main
