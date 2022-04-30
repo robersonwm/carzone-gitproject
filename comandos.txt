@@ -15,7 +15,16 @@
 www.github.com
 8. crear repositorio 'robersonwm/carzone-gitproject' y ejecutar el primer respaldo del proyecto
     $ git init
+    $ git add -A
     $ git commit -m "first commit"
     $ git branch -M main
     $ git remote add origin https://github.com/robersonwm/carzone-gitproject.git
     $ git push -u origin main
+
+    $ git status                            # ver el estatus de respaldo del proyecto (verifica si existen nuevos cambios)
+    $ git add -A                            # carga los cambios en el repositorio       
+    $ git commit -m "tested git status"     
+    $ git push origin main
+
+9. crear fichero '.gitignore' en la raiz del proyecto, visitar 'gitignore.io' en la web y obtener el codigo para un proyecto de Django
+10. agregar codigo de 'gitignore.io' en el fichero '.gitignore' y agregar en el codigo los ficheros o directorios  que no se respaldaran en git        
