@@ -1,0 +1,16 @@
+> django-admin startproject carzone .                   # crea el proyecto "carzone"
+> python manage.py runserver                            # corre el servidor web de Django
+> python manage.py startapp pages                       # crea una nueva aplicacion dentro del proyecto 'carzone' 
+
+1. registra la nueva aplicacion 'pages.apps.PagesConfig', ubicada en 'pages/apps.py', en el archivo de configuracion 'carzone/settings.py'
+2. crear archivo 'pages/urls.py' e incluir la path de inicio con este fichero dentro del archivo carzone/urls.py
+3. configurar la llamada vista de inicio dentro del fichero de urls de 'pages/urls.py' - urlpatterns
+4. configurar la vista de la pagina de inicio en 'pages/views.py' - def home(request)
+5. crear directorio de templates html en 'templates/pages' y crear el fichero 'home.html'
+6. registrar el directorio de templates en 'carzone/settings.py' - TEMPLATES = [{'DIRS': ['templates'],}]
+7. importar 'pages/views.py' en el fichero de urls 'pages/urls.py'
+
+### configurar repositorio git del proyecto ###
+
+www.github.com
+8. crear repositorio 'robersonwm/carzone-gitproject'
