@@ -1,6 +1,14 @@
-> django-admin startproject carzone .                   # crea el proyecto "carzone"
-> python manage.py runserver                            # corre el servidor web de Django
-> python manage.py startapp pages                       # crea una nueva aplicacion dentro del proyecto 'carzone' 
+$ python -m venv env
+$ source env/Scripts/activate
+$ pip freeze
+$ pip install django
+
+
+$ django-admin startproject carzone .                   # crea el proyecto "carzone"
+$ python manage.py runserver                            # corre el servidor web de Django
+$ python manage.py startapp pages                       # crea una nueva aplicacion dentro del proyecto 'carzone' 
+
+$ python manage.py --help                               # ayuda de comandos para manage.py
 
 1. registra la nueva aplicacion 'pages.apps.PagesConfig', ubicada en 'pages/apps.py', en el archivo de configuracion 'carzone/settings.py'
 2. crear archivo 'pages/urls.py' e incluir la path de inicio con este fichero dentro del archivo carzone/urls.py
@@ -27,4 +35,22 @@ www.github.com
     $ git push origin main
 
 9. crear fichero '.gitignore' en la raiz del proyecto, visitar 'gitignore.io' en la web y obtener el codigo para un proyecto de Django
-10. agregar codigo de 'gitignore.io' en el fichero '.gitignore' y agregar en el codigo los ficheros o directorios  que no se respaldaran en git        
+10. agregar codigo de 'gitignore.io' en el fichero '.gitignore' y agregar en el codigo los ficheros o directorios  que no se respaldaran en git
+
+
+##### Static Files, Base Template & Navigation ####
+
+11. agregar estructura html al archivo 'home.html' desde el respaldo bootstrap en 'carhouse.zip'. 
+12. crear directorio 'carzone/static' y copiar contenido estatico (css, img, fonts, js) desde el respaldo bootstrap
+13. define STATIC_ROOT y STATICFILES_DIRS en fichero 'carzone/settings.py'
+
+$ python manage.py collectstatic            # define la carpeta 'static' como directorio de ficheros estaticos
+
+14. incluir sentencia {% load static %} en ficheros html con referencias a ficheros estaticos y modificar referencias 'href'
+15. modificar source de logo banner 'static/img/logos/black-logo.png'
+16. crear fichero 'templates/base.html' e incluir el codigo html base para todos los ficheros html
+17. extender el fichero base - {% extends 'base.html' %} en los ficheros html a crear
+18. crear el directorio 'includes' con los ficheros html footer, navbar y topbar y el codigo html correspondiente extendiendo en el fichero 'base.html'
+19. crear ficheros html about, services y contact en el directorio 'pages' y copiar contenido de respaldo bootstrap en ellos
+20. modificar referencia a los ficheros del directorio 'pages' dentro del fichero navbar.html
+21. modificar referencias href, extensiones {% extends 'base.html' %} y {% load static %} en los nuevos ficheros html
