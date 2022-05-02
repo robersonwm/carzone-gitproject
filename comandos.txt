@@ -29,8 +29,8 @@ www.github.com
     $ git remote add origin https://github.com/robersonwm/carzone-gitproject.git
     $ git push -u origin main
 
-    $ git status                            # ver el estatus de respaldo del proyecto (verifica si existen nuevos cambios)
-    $ git add -A                            # carga los cambios en el repositorio       
+    $ git status                                # ver el estatus de respaldo del proyecto (verifica si existen nuevos cambios)
+    $ git add -A                                # carga los cambios en el repositorio       
     $ git commit -m "tested git status"     
     $ git push origin main
 
@@ -38,7 +38,7 @@ www.github.com
 10. agregar codigo de 'gitignore.io' en el fichero '.gitignore' y agregar en el codigo los ficheros o directorios  que no se respaldaran en git
 
 
-##### Static Files, Base Template & Navigation ####
+##### 3. Static Files, Base Template & Navigation ####
 
 11. agregar estructura html al archivo 'home.html' desde el respaldo bootstrap en 'carhouse.zip'. 
 12. crear directorio 'carzone/static' y copiar contenido estatico (css, img, fonts, js) desde el respaldo bootstrap
@@ -54,3 +54,28 @@ $ python manage.py collectstatic            # define la carpeta 'static' como di
 19. crear ficheros html about, services y contact en el directorio 'pages' y copiar contenido de respaldo bootstrap en ellos
 20. modificar referencia a los ficheros del directorio 'pages' dentro del fichero navbar.html
 21. modificar referencias href, extensiones {% extends 'base.html' %} y {% load static %} en los nuevos ficheros html
+
+
+##### 4. PostgreSQL, Team Model & Media Files #####
+
+22. crear BD de PostgreSQL y configurar acceso en 'carzone/settings.py' - DATABASES = {}
+
+$ pip install psycopg2                          # instala driver de conexion para PostgreSQL
+$ pip install Pillow                            # instala libreria para el uso de campos ImageField en el modelo de BD
+$ python manage.py makemigrations               # gestiona las migraciones de modelos de BD
+$ python manage.py migrate                      # migra modelos y configuraciones para la BD
+
+
+23. configurar super user de Django manager - http://127.0.0.1:8000/admin/
+                
+$ winpty python manage.py createsuperuser       # crea super user para la consola de administracion de Django
+
+24. crear modelo de datos para la BD en 'pages/models.py' - class Teams(models.Model)
+25. Gestiona y migra los modelos de BD - python manage.py makemigrations, python manage.py migrate
+26. registra el nuevo modelo en el fichero de administracion de la aplicacion 'pages/admin.py' - admin.site.register(Teams)
+27. configurar directorio de archivos de 'media' en 'carzone/settings.py' - MEDIA_URL y MEDIA_ROOT
+28. configurar rutas URL de static media en 'carzone.urls.py'
+29. crear nuevos objetos de TEAM en Django Manager
+29. configurar la vista home en 'pages/views' con 'Team.objects.all()' para recibir todos los objetos del modelo de la BD en el template 'home.html'
+30. modificar las etiquetas de los ficheros 'page/home.html' y 'page/about.html' para obtener datos y url de imagenes de los objetos Team de la BD
+31. agregar y registrar nueva clase 'TeamAdmin' en fichero 'pages/admin.py' para retornar datos del modelo de la BD y visualizarlos en Django Manager
